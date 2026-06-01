@@ -1,4 +1,5 @@
 import os
+import argparse
 from dotenv import load_dotenv
 from bot.client import BinanceClient, BinanceAPIError, NetworkError
 from bot.orders import place_order
@@ -10,11 +11,37 @@ API_KEY = os.getenv("BINANCE_API_KEY", "paper_trading_key")
 API_SECRET = os.getenv("BINANCE_API_SECRET", "paper_trading_secret")
 
 
+def build_parser():
+    parser = argparse.ArgumentParser(
+        prog="trading_bot",
+        description="Binance Futures Testnet Trading Bot (USDT-M)",
+        formatter_class=argparse.RawTextHelpFormatter,
+        epilog=(
+            "Examples:\n"
+            "  python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001\n"
+            "  python cli.py --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.001 --price 72000\n"
+        )
+    )
+    parser.add_argument("--symbol",   required=True,  help="Trading pair, e.g. BTCUSDT")
+    parser.add_argument("--side",     required=True,  choices=["BUY", "SELL"], type=str.upper, help="BUY or SELL")
+    parser.add_argument("--type",     required=True,  choices=["MARKET", "LIMIT"], type=str.upper, dest="order_type", help="MARKET or LIMIT")
+    parser.add_argument("--quantity", required=True,  type=float, help="Order quantity, e.g. 0.001")
+    parser.add_argument("--price",    required=False, type=float, default=None, help="Limit price (required for LIMIT orders)")
+    return parser
+
+
 def print_separator():
     print("=" * 45)
 
 
 def main():
+    parser = build_parser()
+    args = parser.parse_args()
+
+    # Extra validation: price required for LIMIT
+    if args.order_type == "LIMIT" and args.price is None:
+        parser.error("--price is required for LIMIT orders")
+
     print_separator()
     print("   🤖 Binance Futures Testnet Trading Bot")
     print_separator()
@@ -22,32 +49,19 @@ def main():
     print("   URL : https://testnet.binancefuture.com")
     print_separator()
 
-    # Always paper trading mode (no KYC needed)
-    client = BinanceClient(API_KEY, API_SECRET, paper_trading=True)
-
-    print("\n📋 Enter Order Details:")
-    print("-" * 45)
-
-    symbol = input("  Symbol     (e.g. BTCUSDT) : ").strip().upper()
-    side = input("  Side       (BUY / SELL)   : ").strip().upper()
-    order_type = input("  Order Type (MARKET/LIMIT) : ").strip().upper()
-    quantity = float(input("  Quantity                 : ").strip())
-
-    price = None
-    if order_type == "LIMIT":
-        price = float(input("  Price (required for LIMIT): ").strip())
-
     print("\n📤 Order Request Summary:")
     print("-" * 45)
-    print(f"  Symbol     : {symbol}")
-    print(f"  Side       : {side}")
-    print(f"  Type       : {order_type}")
-    print(f"  Quantity   : {quantity}")
-    if price:
-        print(f"  Price      : {price}")
+    print(f"  Symbol     : {args.symbol.upper()}")
+    print(f"  Side       : {args.side}")
+    print(f"  Type       : {args.order_type}")
+    print(f"  Quantity   : {args.quantity}")
+    if args.price:
+        print(f"  Price      : {args.price}")
+
+    client = BinanceClient(API_KEY, API_SECRET, paper_trading=True)
 
     try:
-        result = place_order(client, symbol, side, order_type, quantity, price)
+        result = place_order(client, args.symbol, args.side, args.order_type, args.quantity, args.price)
 
         print("\n📥 Order Response:")
         print("-" * 45)

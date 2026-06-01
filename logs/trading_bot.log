@@ -31,3 +31,8 @@
 2026-06-01 22:02:05 | DEBUG    | urllib3.connectionpool | https://fapi.binance.com:443 "GET /fapi/v1/ticker/price?symbol=BTCUSDT HTTP/1.1" 200 None
 2026-06-01 22:02:05 | INFO     | bot.client | PAPER ORDER placed: {'orderId': 879358194, 'symbol': 'BTCUSDT', 'status': 'NEW', 'side': 'SELL', 'type': 'LIMIT', 'origQty': '0.001', 'executedQty': '0', 'avgPrice': '72000.0', 'price': '72000.0', 'timeInForce': 'GTC', 'paper_trading': True}
 2026-06-01 22:02:05 | INFO     | bot.orders | Order placed successfully: {'orderId': 879358194, 'symbol': 'BTCUSDT', 'status': 'NEW', 'side': 'SELL', 'type': 'LIMIT', 'origQty': '0.001', 'executedQty': '0', 'avgPrice': '72000.0', 'price': '72000.0', 'timeInForce': 'GTC', 'paper_trading': True}
+2026-06-01 23:18:38 | INFO     | bot.validators | Validation passed — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-01 23:18:38 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): fapi.binance.com:443
+2026-06-01 23:18:40 | DEBUG    | urllib3.connectionpool | https://fapi.binance.com:443 "GET /fapi/v1/ticker/price?symbol=BTCUSDT HTTP/1.1" 200 None
+2026-06-01 23:18:40 | INFO     | bot.client | PAPER ORDER placed: {'orderId': 303242713, 'symbol': 'BTCUSDT', 'status': 'FILLED', 'side': 'BUY', 'type': 'MARKET', 'origQty': '0.001', 'executedQty': '0.001', 'avgPrice': '71661.1', 'price': '0', 'timeInForce': 'GTE_GTC', 'paper_trading': True}
+2026-06-01 23:18:40 | INFO     | bot.orders | Order placed successfully: {'orderId': 303242713, 'symbol': 'BTCUSDT', 'status': 'FILLED', 'side': 'BUY', 'type': 'MARKET', 'origQty': '0.001', 'executedQty': '0.001', 'avgPrice': '71661.1', 'price': '0', 'timeInForce': 'GTE_GTC', 'paper_trading': True}

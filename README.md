@@ -64,15 +64,17 @@ pip install -r requirements.txt
 
 Create a .env file:
 
-BINANCE\_API\_KEY=MHXRhHqTLYCwVP4MHn
+BINANCE\_API\_KEY=your\_api\_key\_here
 
-BINANCE\_API\_SECRET=d6mpcTrpnhQRwnHwdGQMioi3kwr2htbo45Ot
+BINANCE\_API\_SECRET=your\_api\_secret\_here
 
 
 
 &#x20;5. Run the bot
 
-python cli.py
+python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
+
+python cli.py --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.001 --price 72000
 
 
 
