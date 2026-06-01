@@ -1,0 +1,33 @@
+2026-06-01 21:31:30 | INFO     | bot.validators | Validation passed — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-01 21:31:30 | INFO     | bot.client | POST https://api-testnet.bybit.com/v5/order/create | params: {'category': 'spot', 'symbol': 'BTCUSDT', 'side': 'Buy', 'orderType': 'Market', 'qty': '0.001', 'timestamp': '1780329690177', 'api_key': 'MHXRhHqTLYCwVP4MHn'}
+2026-06-01 21:31:30 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): api-testnet.bybit.com:443
+2026-06-01 21:31:31 | DEBUG    | urllib3.connectionpool | https://api-testnet.bybit.com:443 "POST /v5/order/create HTTP/1.1" 200 126
+2026-06-01 21:31:31 | ERROR    | bot.client | API error: {'retCode': 10001, 'retMsg': 'Request parameter error: apiTimestamp is missing', 'result': {}, 'retExtInfo': {}, 'time': 1780329672816}
+2026-06-01 21:31:31 | ERROR    | bot.orders | API error placing order (code 10001): Request parameter error: apiTimestamp is missing
+2026-06-01 21:33:20 | INFO     | bot.validators | Validation passed — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-01 21:33:20 | INFO     | bot.client | POST https://api-testnet.bybit.com/v5/order/create | params: {'category': 'spot', 'symbol': 'BTCUSDT', 'side': 'Buy', 'orderType': 'Market', 'qty': '0.001'}
+2026-06-01 21:33:20 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): api-testnet.bybit.com:443
+2026-06-01 21:33:22 | DEBUG    | urllib3.connectionpool | https://api-testnet.bybit.com:443 "POST /v5/order/create HTTP/1.1" 200 134
+2026-06-01 21:33:22 | ERROR    | bot.client | API error: {'retCode': 10002, 'retMsg': 'Timestamp for this request is outside of the recvWindow.', 'result': {}, 'retExtInfo': {}, 'time': 1780329783931}
+2026-06-01 21:33:22 | ERROR    | bot.orders | API error placing order (code 10002): Timestamp for this request is outside of the recvWindow.
+2026-06-01 21:35:14 | INFO     | bot.validators | Validation passed — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-01 21:35:14 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): api-testnet.bybit.com:443
+2026-06-01 21:35:16 | DEBUG    | urllib3.connectionpool | https://api-testnet.bybit.com:443 "GET /v5/market/time HTTP/1.1" 200 134
+2026-06-01 21:36:31 | INFO     | bot.validators | Validation passed — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-01 21:36:31 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): api-testnet.bybit.com:443
+2026-06-01 21:36:34 | DEBUG    | urllib3.connectionpool | https://api-testnet.bybit.com:443 "GET /v5/market/time HTTP/1.1" 200 134
+2026-06-01 21:36:34 | DEBUG    | bot.client | Server time response: {'retCode': 0, 'retMsg': 'OK', 'result': {'timeSecond': '1780329975', 'timeNano': '1780329975516065231'}, 'retExtInfo': {}, 'time': 1780329975516}
+2026-06-01 21:36:34 | INFO     | bot.client | POST https://api-testnet.bybit.com/v5/order/create | params: {'category': 'spot', 'symbol': 'BTCUSDT', 'side': 'Buy', 'orderType': 'Market', 'qty': '0.001'}
+2026-06-01 21:36:34 | DEBUG    | urllib3.connectionpool | https://api-testnet.bybit.com:443 "POST /v5/order/create HTTP/1.1" 200 417
+2026-06-01 21:36:34 | ERROR    | bot.client | API error: {'retCode': 10024, 'retMsg': 'Dear User, The product or service you are seeking to access is not available to you due to regulatory restrictions. If you believe you are a permitted customer of this product or service, please contact our Customer Support(/en/help-center/s/webform) for assistance. Thank You.', 'result': {'config': {'endpointExec': 'KYC_PROMPT_TOAST', 'endpointArgs': {}}}, 'retExtInfo': {}, 'time': 1780329976218}
+2026-06-01 21:36:34 | ERROR    | bot.orders | API error placing order (code 10024): Dear User, The product or service you are seeking to access is not available to you due to regulatory restrictions. If you believe you are a permitted customer of this product or service, please contact our Customer Support(/en/help-center/s/webform) for assistance. Thank You.
+2026-06-01 22:00:26 | INFO     | bot.validators | Validation passed — symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=None
+2026-06-01 22:00:26 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): fapi.binance.com:443
+2026-06-01 22:00:28 | DEBUG    | urllib3.connectionpool | https://fapi.binance.com:443 "GET /fapi/v1/ticker/price?symbol=BTCUSDT HTTP/1.1" 200 None
+2026-06-01 22:00:28 | INFO     | bot.client | PAPER ORDER placed: {'orderId': 840249208, 'symbol': 'BTCUSDT', 'status': 'FILLED', 'side': 'BUY', 'type': 'MARKET', 'origQty': '0.001', 'executedQty': '0.001', 'avgPrice': '71073.9', 'price': '0', 'timeInForce': 'GTE_GTC', 'paper_trading': True}
+2026-06-01 22:00:28 | INFO     | bot.orders | Order placed successfully: {'orderId': 840249208, 'symbol': 'BTCUSDT', 'status': 'FILLED', 'side': 'BUY', 'type': 'MARKET', 'origQty': '0.001', 'executedQty': '0.001', 'avgPrice': '71073.9', 'price': '0', 'timeInForce': 'GTE_GTC', 'paper_trading': True}
+2026-06-01 22:02:03 | INFO     | bot.validators | Validation passed — symbol=BTCUSDT side=SELL type=LIMIT qty=0.001 price=72000.0
+2026-06-01 22:02:03 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): fapi.binance.com:443
+2026-06-01 22:02:05 | DEBUG    | urllib3.connectionpool | https://fapi.binance.com:443 "GET /fapi/v1/ticker/price?symbol=BTCUSDT HTTP/1.1" 200 None
+2026-06-01 22:02:05 | INFO     | bot.client | PAPER ORDER placed: {'orderId': 879358194, 'symbol': 'BTCUSDT', 'status': 'NEW', 'side': 'SELL', 'type': 'LIMIT', 'origQty': '0.001', 'executedQty': '0', 'avgPrice': '72000.0', 'price': '72000.0', 'timeInForce': 'GTC', 'paper_trading': True}
+2026-06-01 22:02:05 | INFO     | bot.orders | Order placed successfully: {'orderId': 879358194, 'symbol': 'BTCUSDT', 'status': 'NEW', 'side': 'SELL', 'type': 'LIMIT', 'origQty': '0.001', 'executedQty': '0', 'avgPrice': '72000.0', 'price': '72000.0', 'timeInForce': 'GTC', 'paper_trading': True}
