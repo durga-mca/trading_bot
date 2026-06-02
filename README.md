@@ -40,7 +40,7 @@ trading\_bot/
 
 &#x20;1. Clone the repository
 
-git clone https://github.com/durga-mca/trading\_bot.git
+git clone https://github.com/durga-mca/trading_bot.git
 
 cd trading\_bot
 
